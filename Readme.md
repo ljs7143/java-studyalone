@@ -1,1 +1,1 @@
-This repository aims to organze the contents of JAVA
+This repository aims to organize the contents of JAVA
