@@ -1,0 +1,30 @@
+int delete_min_heap(){
+  if(heapSize==0){
+    return 0;
+  }
+  int rootnode = minheap[1];
+  //index 0 에는 아무 것도 대입하지 않기 때문이다 
+  minheap[1] = minheap[heapSize];
+  minheap[heapSize--] = 0; 
+  //마지막 노드가 0이 되고, heapSize가 감소된다 
+  for(int i=1 ; i*2<=heapSize;){
+    //index마지막까지 가되, 자식 노드로 가면 i*2가 되어야함
+    if(minheap[i] < minheap[i*2] && minheap[i] < minheap[i*2+1]{
+      break;
+    }
+    else if (minheap[i*2] < minheap[i*2+1]){
+               swap(i, i*2+1);
+               i = i*2+1;
+      
+    }
+    else {
+      swap(i, i*2);
+      i = i*2;
+     }
+    
+  
+  
+  }
+  
+
+}
