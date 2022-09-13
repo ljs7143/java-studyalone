@@ -1,0 +1,18 @@
+public static void selection_sort(int[] a, int length){
+  for(int i=0; i< length-1; i++){
+    int min_index=i;
+    for(int j=i+1; j<  length; j++){
+      if(a[j]<a[min_index]){
+        min_index = j;
+      }
+      swap(a, min_index, i);
+ 
+    }
+  
+  }
+  public static void swap(int[] a, int i, int min_index){
+    int temporary = a[i];
+    a[i] = a[min_index];
+    a[min_index] = temporary;
+  }
+}
