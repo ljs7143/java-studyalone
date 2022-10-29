@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class PhoneBook {
@@ -19,16 +22,25 @@ public class PhoneBook {
 
         while(true){
             System.out.println("who do you wanna search for?");
+           
+            int nocount = 0; 
+
             String target = sc.next();
+
+            
             for(int i =0; i<singlePerson.length; i++){
-                boolean okay;
+               
                 if(singlePerson[i].name.equals(target)){
                     System.out.println(target + "'s telephone no. is "+ singlePerson[i].tel); 
                 }
-                else{
-                    System.out.println(target + "does not exist");
-
+                if(!singlePerson[i].name.equals(target)){
+                    nocount++;
+                    continue;
                 }
+               
+            }
+            if(nocount == singlePerson.length){
+                System.out.println(target + " does not exist ");
             }
             if(target.equals("stop")){
                 break;
@@ -36,3 +48,4 @@ public class PhoneBook {
         }
     }
 }
+
