@@ -10,9 +10,20 @@ public class manage {
             System.out.print("Input your name and point>>");
             String forkey = sc.next();
             int val = sc.nextInt();
-            map1.put(forkey, val);
-            System.out.println();
+            if(forkey.equals("exit")){
+                System.out.println("Exit the program");
+                break;
+            }
+            if(map1.containsKey(forkey)==true){
+                int existedone = map1.get(forkey);
+                map1.put(forkey, val+existedone);
+            }
+            else{
+                map1.put(forkey, val);
+            }
+            map1.forEach((key,value) ->{
+                System.out.println("("+ key + "," +value+")");
+            });
         }
     }
-    
 }
