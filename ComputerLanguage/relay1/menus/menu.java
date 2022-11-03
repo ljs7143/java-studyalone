@@ -1,37 +1,96 @@
-package ComputerLanguage.relay1.employeeTest;
+
+package ComputerLanguage.relay1;
 import java.util.Scanner;
 
-import ComputerLanguage.relay1.menus.MainMenuEnum;
-import ComputerLanguage.relay1.menus.Menu;
-import ComputerLanguage.relay1.menus.RegisterMenuEnum;
+public class Menu {
+	public MainMenuEnum MainMenu(Scanner s) {
+		System.out.println("");
+		System.out.println("======== Main Menu ===");
+		for(MainMenuEnum m : MainMenuEnum.values()) {
+			System.out.println("  " + m.getCode() + ". " + m.getMessage());
+		}
 
-public class EmployeeTest {
-
-	public static void main(String[] args) {
-		Menu menu = new Menu();
-
-		Scanner scanner = new Scanner(System.in);
+		int n;
+		MainMenuEnum select = null;
 		while(true) {
-			MainMenuEnum mm = menu.MainMenu(scanner);
-			if(mm == MainMenuEnum.REGISTER) {
-				System.out.println("Register");
-				while(true){
-					RegisterMenuEnum rm = menu.RegisterMenu(scanner);
-					if(rm == RegisterMenuEnum.FUllTIME ){
-						
-					}
+			n = Utils.checkInputInteger(s, "Select >>> ");
+
+			boolean valid = false;
+			for(MainMenuEnum m : MainMenuEnum.values()) {
+				if(n == m.getCode()) {
+					valid = true;
+					select = m;
+					break;
 				}
 			}
-			else if(mm == MainMenuEnum.SEARCH) {
-				System.out.println("Search");
-			}
-			else if(mm == MainMenuEnum.EXIT) {
-				System.out.print("Good BYE!");
-				scanner.close();
+			
+			if(valid) {
 				break;
 			}
 		}
 		
-		scanner.close();
+		return select;
 	}
+
+    public RegisterMenuEnum RegisterMenu(Scanner scanner) {
+
+		System.out.println("");
+		System.out.println("======== Register Menu ===");
+		for(RegisterMenuEnum r : RegisterMenuEnum.values()) {
+			System.out.println("  " + r.getCode() + ". " + r.getMessage());
+		}
+
+		int n;
+		RegisterMenuEnum select = null;
+		while(true) {
+			n = Utils.checkInputInteger(scanner, "Select >>> ");
+
+			boolean valid = false;
+			for(RegisterMenuEnum r : RegisterMenuEnum.values()) {
+				if(n == r.getCode()) {
+					valid = true;
+					select = r;
+					break;
+				}
+			}
+			
+			if(valid) {
+				break;
+			}
+		}
+		
+		return select;
+    }
+
+	public SearchMenuEnum SearchMenu(Scanner scanner) {
+
+		System.out.println("");
+		System.out.println("======== Main Menu ===");
+		for(SearchMenuEnum s : SearchMenuEnum.values()) {
+			System.out.println("  " + s.getCode() + ". " + s.getMessage());
+		}
+
+		int n;
+		SearchMenuEnum select = null;
+		while(true) {
+			n = Utils.checkInputInteger(scanner, "Select >>> ");
+
+			boolean valid = false;
+			for(SearchMenuEnum s : SearchMenuEnum.values()) {
+				if(n == s.getCode()) {
+					valid = true;
+					select = s;
+					break;
+				}
+			}
+			
+			if(valid) {
+				break;
+			}
+		}
+		
+		return select;
+    }
+
 }
+
